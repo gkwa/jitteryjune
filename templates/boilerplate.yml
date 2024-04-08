@@ -1,0 +1,76 @@
+required_version: ">= 0.0.0"
+
+variables:
+ - name: VpcId
+   description: The ID of the VPC to use for the EC2 instance
+   type: string
+   default: vpc-12345abcde
+   validations:
+     - required
+
+ - name: SubnetId
+   description: The ID of the subnet to use for the EC2 instance
+   type: string
+   default: subnet-12345abcde
+   validations:
+     - required
+
+ - name: AmiNamePrefix
+   description: The prefix to use for the generated AMI name
+   type: string
+   default: example-app
+   validations:
+     - required
+
+ - name: SourceAmiFilterName
+   description: The name filter to use for finding the source AMI
+   type: string
+   default: ubuntu/images/*ubuntu-focal-20.04-amd64-server-*
+
+ - name: SourceAmiOwners
+   description: The AWS account IDs that own the source AMI
+   type: list
+   default:
+     - "099720109477"
+
+ - name: SshUsername
+   description: The SSH username to use for the source AMI
+   type: string
+   default: ubuntu
+
+ - name: InstanceType
+   description: The EC2 instance type to use when building the AMI
+   type: string
+   default: t2.small
+
+ - name: ProvisionScript
+   description: The path to the script to run to provision the AMI
+   type: string
+   default: provision.sh
+   validations:
+     - required
+
+ - name: Region
+   description: The AWS region in which to build the AMI
+   type: string
+   default: us-east-1
+
+ - name: SpotPrice
+   description: The maximum price to pay for spot instances
+   type: string
+   default: auto
+
+ - name: ForceDeregister
+   description: Whether to automatically deregister conflicting AMIs
+   type: bool
+   default: true
+
+ - name: ForceDeleteSnapshot
+   description: Whether to automatically delete conflicting snapshots
+   type: bool
+   default: true
+
+ - name: RootVolumeSize
+   description: Root EBS volume size in GB
+   type: int
+   default: '20'

@@ -1,0 +1,12 @@
+{
+ "AmiNamePrefix": "{{ .AmiNamePrefix }}",
+ "ForceDeleteSnapshot": "{{ .ForceDeleteSnapshot }}",
+ "ForceDeregister": "{{ .ForceDeregister }}",
+ "ProvisionScript": "{{ .ProvisionScript }}",
+ "Region": "{{ .Region }}",
+ "RootVolumeSize": "{{ .RootVolumeSize }}",
+ "SourceAmiFilterName": "{{ .SourceAmiFilterName }}",
+ "SpotPrice": "{{ .SpotPrice }}",
+ "SubnetId": "{{ .SubnetId }}",
+ "VpcId": "{{ .VpcId }}"
+}
