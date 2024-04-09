@@ -48,3 +48,18 @@ and then
 make pretty
 packer build -var-file=vars.json .
 ```
+
+
+
+
+
+
+
+So, for example I've been using this:
+```bash
+boilerplate --template-url=https://github.com/taylormonacelli/jitteryjune/archive/refs/heads/master.zip//jitteryjune-master/templates --output-folder=. --non-interactive
+! test -f vars.json && cp vars.json.sample vars.json
+yq --inplace -ojson '.SpotPrice = "auto" | .SubnetId = "subnet-1111" | .VpcId = "vpc-2222"' vars.json
+make pretty
+packer build -var-file=vars.json .
+```
