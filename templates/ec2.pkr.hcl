@@ -20,14 +20,7 @@ source "amazon-ebs" "ubuntu" {
   ssh_username          = var.SshUsername
   subnet_id             = var.SubnetId
   vpc_id                = var.VpcId
-
-  # Use spot instances only if spot_price is defined
-  dynamic "spot_instance" {
-    for_each = var.SpotPrice != null ? [1] : []
-    content {
-      spot_price = var.SpotPrice
-    }
-  }
+  spot_price            = var.SpotPrice != null ? var.SpotPrice : null
 
   source_ami_filter {
     filters = {
