@@ -21,17 +21,13 @@ and then
 
 ```bash
 # create on-demand instance
-jq '.SpotPrice = null' vars.json | sponge vars.json
+cat <<< $(jq '.SpotPrice = null' vars.json) > vars.json
 
-# or
+# or create spot instance
+cat <<< $(jq '.SpotPrice = "auto"' vars.json) > vars.json
 
-# create spot instance
-jq '.SpotPrice = "auto"' vars.json | sponge vars.json
-
-# or
-
-# create spot instance with specific price
-jq '.SpotPrice = 0.34' vars.json | sponge vars.json
+# or create spot instance with specific price
+cat <<< $(jq '.SpotPrice = 0.34' vars.json) > vars.json
 ```
 
 and then adjust vpc and subnet and...:
