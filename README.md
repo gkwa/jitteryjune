@@ -1,4 +1,4 @@
-## Usage examples
+## Usage example
 
 
 ```bash
