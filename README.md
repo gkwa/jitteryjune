@@ -1,14 +1,17 @@
 ## Usage examples
 
-```bash
-git clone https://github.com/taylormonacelli/jitteryjune
-boilerplate --template-url=jitteryjune/templates --output-folder=. --non-interactive
-```
-
-or
 
 ```bash
 boilerplate --template-url=https://github.com/taylormonacelli/jitteryjune/archive/refs/heads/master.zip//jitteryjune-master/templates --output-folder=. --non-interactive
+```
+
+
+or
+
+
+```bash
+git clone https://github.com/taylormonacelli/jitteryjune
+boilerplate --template-url=jitteryjune/templates --output-folder=. --non-interactive
 ```
 
 and then
