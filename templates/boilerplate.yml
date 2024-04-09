@@ -56,7 +56,7 @@ variables:
    default: us-east-1
 
  - name: SpotPrice
-   description: The maximum price to pay for spot instances
+   description: The maximum price to pay for spot instances.  null=on-demand, auto=spot, 0.24=spot price of $0.24/hr.
    type: string
    default: auto
 
