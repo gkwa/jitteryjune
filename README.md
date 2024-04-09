@@ -22,18 +22,14 @@ and then
 ```bash
 # create on-demand instance
 jq '.SpotPrice = null' vars.json | sponge vars.json
-```
 
-or
+# or
 
-```bash
 # create spot instance
 jq '.SpotPrice = "auto"' vars.json | sponge vars.json
-```
 
-or
+# or
 
-```bash
 # create spot instance with specific price
 jq '.SpotPrice = 0.34' vars.json | sponge vars.json
 ```
