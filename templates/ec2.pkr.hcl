@@ -17,10 +17,17 @@ source "amazon-ebs" "ubuntu" {
   force_deregister      = var.ForceDeregister
   instance_type         = var.InstanceType
   region                = var.Region
-  spot_price            = var.SpotPrice
   ssh_username          = var.SshUsername
   subnet_id             = var.SubnetId
   vpc_id                = var.VpcId
+
+  # Use spot instances only if spot_price is defined
+  dynamic "spot_instance" {
+    for_each = var.SpotPrice != null ? [1] : []
+    content {
+      spot_price = var.SpotPrice
+    }
+  }
 
   source_ami_filter {
     filters = {
