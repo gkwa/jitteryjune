@@ -24,13 +24,13 @@ and then
 
 ```bash
 # create on-demand instance
-cat <<< $(jq '.SpotPrice = null' vars.json) > vars.json
+yq -i -ojson '.SpotPrice = null' vars.json
 
 # or create spot instance
-cat <<< $(jq '.SpotPrice = "auto"' vars.json) > vars.json
+yq -i -ojson '.SpotPrice = "auto"' vars.json
 
 # or create spot instance with specific price
-cat <<< $(jq '.SpotPrice = 0.34' vars.json) > vars.json
+yq -i -ojson '.SpotPrice = 0.34' vars.json
 ```
 
 and then adjust vpc and subnet and...:
